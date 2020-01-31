@@ -6,7 +6,7 @@ class FirstOperator(bpy.types.Operator):
     bl_description = "A demo operator"
 
     def execute(self, context):
-        print("hello world 1a")
+        print("hello world 1aaabbba")
 
         return {"FINISHED"}
         
