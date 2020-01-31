@@ -9,19 +9,21 @@ bl_info = {
     "category": "Animation"
 }
 
-# When bpy is already in local, we know this is not the initial import...
-if "bpy" in locals():
-    import importlib
-    importlib.reload(main)
-    print(" Reloaded ")
-else:
-    from .main import *
-    print(" Imported ")
-
 import bpy
+import importlib
 
-classes = (FirstOperator,
-SecondOperator)
+# When main is already in local, we know this is not the initial import...
+if "main" in locals():    
+    importlib.reload(main)    
+    
+from . import main
+
+main.FirstOperator.doprint()
+
+classes =   (
+    main.FirstOperator,
+    main.SecondOperator
+)
 
 def register():
     from bpy.utils import register_class
